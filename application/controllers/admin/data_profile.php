@@ -2,6 +2,14 @@
 
 class Data_profile extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
+
     public function index()
     {
         $data['count_menu']                     = $this->M_resto->count_menu();

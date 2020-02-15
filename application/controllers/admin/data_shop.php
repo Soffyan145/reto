@@ -2,6 +2,14 @@
 
 class Data_shop extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
+
     public function index()
     {
         $data['menu'] = $this->M_resto->get_data('menu')->result();
