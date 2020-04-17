@@ -2,12 +2,12 @@
   <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="<?php echo base_url('admin/data_slider') ?>" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="<?php echo base_url('a/slider') ?>" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Detail data employee</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="<?php echo base_url('admin/dashboard') ?>">Dashboard</a></div>
-        <div class="breadcrumb-item active"><a href="<?php echo base_url('admin/data_slider') ?>">Data slider</a></div>
+        <div class="breadcrumb-item active"><a href="<?php echo base_url('a/dashboard') ?>">Dashboard</a></div>
+        <div class="breadcrumb-item active"><a href="<?php echo base_url('a/slider') ?>">Data slider</a></div>
         <div class="breadcrumb-item">Add slider</div>
       </div>
     </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
 
-                  <form method="post" action="<?php echo site_url('admin/data_slider/tambah_slider_aksi') ?>" enctype="multipart/form-data">
+                  <form method="post" action="<?php echo site_url('admin/data_slider/add_action') ?>" enctype="multipart/form-data">
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title Slider</label>
@@ -47,7 +47,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Foto Slider</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="file" class="form-control" name="foto_slider">
+                        <input type="file" class="form-control" name="img">
                       </div>
                     </div>
 

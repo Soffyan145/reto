@@ -82,6 +82,7 @@ class Data_employee extends CI_Controller
 
     if ($this->session->userdata('role_id') === '1') {
       $this->load->view('templates/backend/header');
+      $this->load->view('templates/backend/topbar');
       $this->load->view('templates/backend/sidebar');
       $this->load->view('pages/admin/employee/form_update_employee', $data);
       $this->load->view('templates/backend/footer');
@@ -126,7 +127,7 @@ class Data_employee extends CI_Controller
     <span aria-hidden="true">&times;</span>
     </button>
     </div>');
-    redirect('admin/data_employee');
+    redirect('admin/data_news');
   }
   public function detail_employee($id)
   {

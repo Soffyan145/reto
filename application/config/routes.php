@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -52,3 +52,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// ==========================================================================================
+// Admin
+// @npic restaurant
+// ==========================================================================================
+
+$route['a/dashboard']                     = 'admin/dashboard';
+
+$route['a/slider']                          = 'admin/data_slider';
+$route['a/slider/add']                      = 'admin/data_slider/add';
+$route['a/slider/edit/']                    = 'admin/data_slider/edit';
+$route['a/slider/delete/']                    = 'admin/data_slider/delete';
+
+$route['a/shop']                            = 'admin/dashboard';
+$route['a/food']                            = 'admin/data_menu';
+$route['a/user']                            = 'admin/data_user';
+$route['a/table']                           = 'admin/data_table';
+$route['a/salary']                          = 'admin/data_salary';
+$route['a/salary/choose_employee']          = 'admin/data_salary/choose_employee';
+$route['a/logout']                          = 'auth/logout';
+$route['a/setting']                         = 'admin/setting';
+$route['a/profile']                         = 'admin/data_account';
+$route['a/employee']                        = 'admin/data_employee';
+$route['a/position']                        = 'admin/data_posittion';
+$route['a/food_type']                       = 'admin/data_type';
+$route['a/reservation']                     = 'admin/dashboard';
+$route['a/transaction']                     = 'admin/invoice';
+$route['a/edit_profile']                    = 'admin/data_account/edit';
+$route['a/food_category']                   = 'admin/data_kategori';
+$route['a/change_password']                 = 'admin/data_account/change_password';
+$route['a/food_not_available']              = 'admin/menu_not_available';

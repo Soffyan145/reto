@@ -2,12 +2,12 @@
   <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="<?php echo base_url('admin/data_slider') ?>" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="<?php echo base_url('a/slider') ?>" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Detail data employee</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="<?php echo base_url('admin/dashboard') ?>">Dashboard</a></div>
-        <div class="breadcrumb-item active"><a href="<?php echo base_url('admin/data_slider') ?>">Data slider</a></div>
+        <div class="breadcrumb-item active"><a href="<?php echo base_url('a/dashboard') ?>">Dashboard</a></div>
+        <div class="breadcrumb-item active"><a href="<?php echo base_url('a/slider') ?>">Data slider</a></div>
         <div class="breadcrumb-item">Edit slider</div>
       </div>
     </div>
@@ -29,13 +29,14 @@
                 <div class="card-body">
 
                   <?php foreach ($slider as $slr) : ?>
-                    <form method="post" action="<?php echo site_url('admin/data_slider/update_slider_aksi') ?>" enctype="multipart/form-data">
+                    <form method="post" action="<?php echo site_url('admin/data_slider/edit_action') ?>" enctype="multipart/form-data">
 
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                         <div class="col-sm-12 col-md-7">
                           <input type="hidden" class="form-control" name="id_slider" value="<?php echo $slr->id_slider ?>">
-                          <input type="text" class="form-control" name="title_slider" value="<?php echo $slr->title_slider ?>" required>
+                          <input type="text" class="form-control" name="title_slider" value="<?php echo $slr->title_slider ?>">
+                          <?= form_error('title_slider', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                       </div>
 
@@ -50,14 +51,14 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Images</label>
                         <div class="col-sm-12 col-md-7">
                           <img src="" alt="">
-                          <img src="<?php echo base_url() . 'assets/backend/img/upload_slider/' . $slr->foto_slider ?>" width="600px" height="300">
+                          <img src="<?php echo base_url() . 'assets/backend/img/upload_slider/' . $slr->img ?>" width="600px" height="300">
                         </div>
                       </div>
 
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Choose To Update Images</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="file" class="form-control" name="foto_slider">
+                          <input type="file" class="form-control" name="img">
                         </div>
                       </div>
 

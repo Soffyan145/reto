@@ -122,7 +122,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
-                        <button type="submit" class="btn btn-primary" id="swal-2">Launch</button>
+                        <button type="submit" class="btn btn-primary" id="swal-2">Add</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                       </div>
                     </div>

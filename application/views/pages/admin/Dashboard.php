@@ -8,7 +8,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <a href="<?php echo base_url('admin/data_menu') ?>">
+                  <a href="<?php echo base_url('a/food') ?>">
                     <img src="<?php echo base_url('assets/backend') ?>/assets/logo/food.png" height="60px" width="60px">
                 </div>
                 <div class="card-wrap">
@@ -25,7 +25,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-danger">
-                  <a href="<?php echo base_url('admin/menu_not_available') ?>">
+                  <a href="<?php echo base_url('a/food_not_available') ?>">
                     <img src="<?php echo base_url('assets/backend') ?>/assets/logo/food_not_availeble.png" height="70px" width="70px">
                 </div>
                 <div class="card-wrap">
@@ -42,7 +42,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">
-                  <a href="<?php echo base_url('admin/menu_not_available') ?>">
+                  <a href="<?php echo base_url('a/transaction') ?>">
                     <img src="<?php echo base_url('assets/backend') ?>/assets/logo/transaction.svg" height="60px" width="60px">
                 </div>
                 <div class="card-wrap">
@@ -104,7 +104,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-secondary">
-                  <a href="<?php echo base_url('admin/data_table') ?>">
+                  <a href="<?php echo base_url('a/table') ?>">
                     <img src="<?php echo base_url('assets/backend') ?>/assets/logo/food.png" height="60px" width="60px">
                 </div>
                 <div class="card-wrap">
@@ -121,7 +121,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <a href="<?php echo base_url('admin/data_slider') ?>">
+                  <a href="<?php echo base_url('a/slider') ?>">
                     <img src="<?php echo base_url('assets/backend') ?>/assets/logo/food.png" height="60px" width="60px">
                 </div>
                 <div class="card-wrap">

@@ -1,0 +1,7 @@
+fitur fitur yang masih dalam perbaikan
+1. unlink image slider
+2. upload img pada edit profile
+3. checkout
+4. rapihkan tampilan shop
+5. transaction
+6. reservation

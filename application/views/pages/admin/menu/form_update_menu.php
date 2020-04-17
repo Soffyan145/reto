@@ -36,7 +36,6 @@
                       <div class="col-sm-12 col-md-7">
                         <input type="hidden" class="form-control" name="id_menu" value="<?php echo $mn->id_menu ?>">
                         <input type="text" class="form-control" id="nama_menu" name="nama_menu" value="<?php echo $mn->nama_menu ?>" required>
-                        <?php echo form_error('nama_menu', '<div class="text-small text-danger">', '</div>') ?>
                       </div>
                     </div>
 
@@ -85,7 +84,6 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga Dasar</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="number" class="form-control" id="harga_dasar" name="harga_dasar" value="<?php echo $mn->harga_dasar ?>" required>
-                        <?php echo form_error('harga_dasar', '<div class="text-small text-danger">', '</div>') ?>
                       </div>
                     </div>
 
@@ -93,7 +91,6 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga Jual</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="number" class="form-control" id="harga_jual" name="harga_jual" value="<?php echo $mn->harga_jual ?>" required>
-                        <?php echo form_error('harga_jual', '<div class="text-small text-danger">', '</div>') ?>
                       </div>
                     </div>
 
@@ -101,7 +98,6 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="<?php echo $mn->deskripsi ?>">
-                        <?php echo form_error('deskripsi', '<div class="text-small text-danger">', '</div>') ?>
                       </div>
                     </div>
 
@@ -109,7 +105,6 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Discount</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="number" class="form-control" id="discount" name="discount" value="<?php echo $mn->discount ?>">
-                        <?php echo form_error('discount', '<div class="text-small text-danger">', '</div>') ?>
                       </div>
                     </div>
 

@@ -1,6 +1,8 @@
 <?php
 $this->load->model("M_resto");
+$this->load->model("M_invoice");
 $count_menu = $this->M_resto->count_menu_not_available();
+$count_transaction = $this->M_invoice->count_transaction();
 $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 ?>
 
@@ -25,9 +27,9 @@ $user = $this->db->get_where('user', ['email' => $this->session->userdata('email
                         </h6>
                     </li>
                     <li class="dropdown dropdown-list-toggle">
-                        <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg">
+                        <a href="<?php echo base_url('a/slider') ?>" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg">
                             <i class="far fa-bell"></i>
-                            <span id="count"><?php echo $count_menu ?></span>
+                            <span id="count"><?php echo $count_transaction ?></span>
                         </a>
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -35,14 +37,14 @@ $user = $this->db->get_where('user', ['email' => $this->session->userdata('email
                             <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $user['nama']; ?></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="<?php echo base_url('admin/data_account'); ?>" class="dropdown-item has-icon">
+                            <a href="<?php echo base_url('a/profile'); ?>" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>
-                            <a href="<?php echo base_url('admin/setting'); ?>" class="dropdown-item has-icon">
+                            <a href="<?php echo base_url('a/setting'); ?>" class="dropdown-item has-icon">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a href="<?php echo base_url('auth/logout'); ?>" class="dropdown-item has-icon text-danger">
+                            <a href="<?php echo base_url('a/logout'); ?>" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
                         </div>

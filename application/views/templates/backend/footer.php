@@ -43,6 +43,14 @@
     }, 1000);
   })
 </script>
+
+<script>
+  $(document).ready(function() {
+    $("#nama_customer").autocomplete({
+      source: "<?= site_url('admin/Autocomplete/search') ?>"
+    });
+  });
+</script>
 </body>
 
 </html>

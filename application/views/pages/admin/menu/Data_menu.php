@@ -3,7 +3,7 @@
         <div class="section-header">
             <h1>Data menu</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="<?php echo base_url('admin/dashboard') ?>">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('a/dashboard') ?>">Dashboard</a></div>
                 <div class="breadcrumb-item">Data menu</div>
             </div>
         </div>

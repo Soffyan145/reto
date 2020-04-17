@@ -3,12 +3,12 @@
         <div class="section-header">
             <h1>Data slider</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="<?php echo base_url('admin/dashboard') ?>">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('a/dashboard') ?>">Dashboard</a></div>
                 <div class="breadcrumb-item">Data Slider</div>
             </div>
         </div>
 
-        <a href="<?php echo base_url('admin/data_slider/tambah_slider') ?>" class="btn btn-primary mb-3">Add Slider</a>
+        <a href="<?php echo base_url('a/slider/add') ?>" class="btn btn-primary mb-3">Add Slider</a>
 
         <?php echo $this->session->flashdata('pesan') ?>
 
@@ -31,11 +31,11 @@
                         <td><?php echo $slr->title_slider ?></td>
                         <td><?php echo $slr->deskripsi ?></td>
                         <td>
-                            <img width="200px" src='<?= base_url() ?>assets/backend/img/upload_slider/<?= $slr->foto_slider; ?>' height='150px'>
+                            <img width="200px" src='<?= base_url() ?>assets/backend/img/upload_slider/<?= $slr->img; ?>' height='150px'>
                         </td>
                         <td>
-                            <a href="<?php echo base_url('admin/data_slider/update_slider/') . $slr->id_slider ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="<?php echo base_url('admin/data_slider/delete_slider/') . $slr->id_slider ?>" class="btn btn-danger" onclick="javascript: return confirm('Are You Sure To delete ?')"><i class="fas fa-trash"></i></a>
+                            <a href="<?php echo base_url('admin/data_slider/edit/') . $slr->id_slider ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="<?php echo base_url('admin/data_slider/delete/') . $slr->id_slider ?>" class="btn btn-danger" onclick="javascript: return confirm('Are You Sure To delete ?')"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

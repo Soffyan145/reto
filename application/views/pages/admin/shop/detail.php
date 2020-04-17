@@ -63,14 +63,15 @@
                 </button>
             </div>
             <div class="modal-body">
+                <b>Total belanja anda : <?php echo number_format($this->cart->total(), 0, ',', '.') ?></b>
                 <form action="<?php echo base_url('admin/data_shop/add') ?>" method="post">
                     <div class="form-group">
                         <label for="pay" class="col-form-label">Pay:</label>
-                        <input type="number" class="form-control" id="pay" placeholder="5000 real">
+                        <input type="number" name="pay" class="form-control" id="pay" placeholder="5000 real">
                     </div>
                     <div class="form-group">
                         <label for="message" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message"></textarea>
+                        <textarea class="form-control" name="message" id="message"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

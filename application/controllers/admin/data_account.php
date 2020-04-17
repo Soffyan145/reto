@@ -28,9 +28,21 @@ class Data_account extends CI_Controller
         $this->load->view('templates/backend/header');
         $this->load->view('templates/backend/topbar');
         $this->load->view('templates/backend/sidebar', $data);
-        $this->load->view('pages/admin/account/edit_account', $data);
+        $this->load->view('pages/admin/account/Edit_account', $data);
         $this->load->view('templates/backend/footer');
     }
+
+    public function change_password()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/backend/header');
+        $this->load->view('templates/backend/topbar');
+        $this->load->view('templates/backend/sidebar', $data);
+        $this->load->view('pages/admin/account/Change_password', $data);
+        $this->load->view('templates/backend/footer');
+    }
+
     public function edit_action()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -85,6 +97,59 @@ class Data_account extends CI_Controller
             Your Profile has been updated.
             </div>');
             redirect('admin/data_account');
+        }
+    }
+    public function change_password_action()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('current_password', 'Cureent password', 'required|trim', [
+            'required'                  => 'Please check Current Password again',
+        ]);
+        $this->form_validation->set_rules('new_password1', 'New password', 'required|trim|min_length[6]|matches[new_password2]', [
+            'required'                  => 'Please check New Password again',
+            'min_length'                => 'minimum 6 character',
+            'matches'                   => 'password do not matches'
+        ]);
+        $this->form_validation->set_rules('new_password2', 'Confirm New Password', 'required|trim|min_length[6]|matches[new_password1]', [
+            'required'                  => 'Please check New Password again',
+            'min_length'                => 'minimum 6 character',
+            'matches'                   => 'password do not matches'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/backend/header');
+            $this->load->view('templates/backend/topbar');
+            $this->load->view('templates/backend/sidebar', $data);
+            $this->load->view('pages/admin/account/Change_password', $data);
+            $this->load->view('templates/backend/footer');
+        } else {
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password1');
+            if (!password_verify($current_password, $data['user']['password'])) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Wrong Curent Passsword.
+                </div>');
+                redirect('admin/data_account/change_password_action');
+            } else {
+                if ($current_password == $new_password) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                New password cannot be the same as current password.
+                </div>');
+                    redirect('admin/data_account/change_password_action');
+                } else {
+                    //password ok
+                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                    $this->db->set('password', $password_hash);
+                    $this->db->where('email', $this->session->userdata('email'));
+                    $this->db->update('user');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Password Change.
+                </div>');
+                    redirect('admin/data_account/change_password_action');
+                }
+            }
         }
     }
 }

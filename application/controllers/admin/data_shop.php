@@ -15,6 +15,7 @@ class Data_shop extends CI_Controller
         $data['menu'] = $this->M_resto->get_data('menu')->result();
         $this->load->view('templates/backend/header');
         $this->load->view('templates/backend/topbar');
+        $this->load->view('templates/backend/sidebar');
         $this->load->view('pages/admin/shop/shop', $data);
         $this->load->view('templates/backend/footer');
     }
@@ -40,16 +41,20 @@ class Data_shop extends CI_Controller
         $this->load->view('pages/admin/shop/detail');
         $this->load->view('templates/backend/footer');
     }
-    public function checkout()
+    public function add()
     {
         $data['menu'] = $this->M_resto->get_data('menu')->result();
-
-        $this->cart->destroy();
-        $this->load->view('templates/backend/header');
-        $this->load->view('templates/backend/topbar');
-        $this->load->view('templates/backend/sidebar');
-        $this->load->view('pages/admin/shop/shop', $data);
-        $this->load->view('templates/backend/footer');
+        $is_processed = $this->M_invoice->index();
+        if ($is_processed) {
+            $this->cart->destroy();
+            $this->load->view('templates/backend/header');
+            $this->load->view('templates/backend/topbar');
+            $this->load->view('templates/backend/sidebar');
+            $this->load->view('pages/admin/shop/shop', $data);
+            $this->load->view('templates/backend/footer');
+        } else {
+            echo "sorry gagal";
+        }
     }
     public function cancel()
     {

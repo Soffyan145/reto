@@ -23,39 +23,39 @@ class Data_slider extends CI_Controller
       redirect('admin/block_access');
     }
   }
-  public function tambah_slider()
+  public function add()
   {
     if ($this->session->userdata('role_id') === '1') {
       $this->load->view('templates/backend/header');
       $this->load->view('templates/backend/topbar');
       $this->load->view('templates/backend/sidebar');
-      $this->load->view('pages/admin/slider/form_tambah_slider');
+      $this->load->view('pages/admin/slider/add');
       $this->load->view('templates/backend/footer');
     } else {
       redirect('admin/block_access');
     }
   }
-  public function tambah_slider_aksi()
+  public function add_action()
   {
     $title_slider              = $this->input->post('title_slider');
     $deskripsi                 = $this->input->post('deskripsi');
-    $foto_slider             = $_FILES['foto_slider'];
-    if ($foto_slider = '') {
+    $img                       = $_FILES['img'];
+    if ($img = '') {
     } else {
       $config['upload_path']    = './assets/backend/img/upload_slider';
       $config['allowed_types']  = 'jpg|png|jpeg';
 
       $this->load->library('upload', $config);
-      if (!$this->upload->do_upload('foto_slider')) {
-        $foto_slider = 'default.jpg';
+      if (!$this->upload->do_upload('img')) {
+        $img = 'default.jpg';
       } else {
-        $foto_slider = $this->upload->data('file_name');
+        $img = $this->upload->data('file_name');
       }
     }
     $data = array(
       'title_slider'            => $title_slider,
       'deskripsi'               => $deskripsi,
-      'foto_slider'             => $foto_slider
+      'img'                     => $img
     );
 
     $this->M_resto->insert_data($data, 'slider');
@@ -67,7 +67,7 @@ class Data_slider extends CI_Controller
     </div>');
     redirect('admin/data_slider');
   }
-  public function update_slider($id)
+  public function edit($id)
   {
     if ($this->session->userdata('role_id') === '1') {
       $where = array('id_slider' => $id);
@@ -76,48 +76,61 @@ class Data_slider extends CI_Controller
       $this->load->view('templates/backend/header');
       $this->load->view('templates/backend/topbar');
       $this->load->view('templates/backend/sidebar');
-      $this->load->view('pages/admin/slider/form_update_slider', $data);
+      $this->load->view('pages/admin/slider/edit', $data);
       $this->load->view('templates/backend/footer');
     } else {
       redirect('admin/block_access');
     }
   }
-  public function update_slider_aksi()
+  public function edit_action()
   {
-    $id_slider                 = $this->input->post('id_slider');
-    $title_slider              = $this->input->post('title_slider');
-    $deskripsi                 = $this->input->post('deskripsi');
-    $foto_slider               = $_FILES['foto_slider'];
-    if ($foto_slider) {
-      $config['upload_path']    = './assets/backend/img/upload_slider';
-      $config['allowed_types']  = 'jpg|png|jpeg';
+    $data['slider'] = $this->db->query("SELECT * FROM slider ")->result();
 
-      $this->load->library('upload', $config);
-      if ($this->upload->do_upload('foto_slider')) {
-        $foto_slider = $this->upload->data('file_name');
-        $this->db->set('foto_slider', $foto_slider);
+    $this->form_validation->set_rules('title_slider', 'Title_slider', 'required', [
+      'required'          => 'Please Insert for title!'
+    ]);
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('templates/backend/header');
+      $this->load->view('templates/backend/topbar');
+      $this->load->view('templates/backend/sidebar', $data);
+      $this->load->view('pages/admin/slider/edit', $data);
+      $this->load->view('templates/backend/footer');
+    } else {
+      $id_slider                = $this->input->post('id_slider');
+      $title_slider              = $this->input->post('title_slider');
+      $deskripsi                 = $this->input->post('deskripsi');
+      $img                       = $_FILES['img'];
+      if ($img = '') {
       } else {
-        echo $this->upload->display_errors();
+        $config['upload_path']    = './assets/backend/img/upload_slider';
+        $config['allowed_types']  = 'jpg|png|jpeg';
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('img')) {
+          $img = 'default.jpg';
+        } else {
+          $img = $this->upload->data('file_name');
+        }
       }
-    }
+      $data = array(
+        'title_slider'            => $title_slider,
+        'deskripsi'               => $deskripsi,
+        'img'                     => $img
+      );
 
-    $data = array(
-      'title_slider'            => $title_slider,
-      'deskripsi'               => $deskripsi,
-      'foto_slider'             => $foto_slider
-    );
-
-    $where = array('id_slider' => $id_slider);
-    $this->M_resto->update_data('slider', $data, $where);
-    $this->session->set_flashdata('pesan', '<div class="alert alert-primary alert-dismissible fade show" role="alert">
-    <strong>Data Slider</strong> Success To Update.
+      $where = array('id_slider' => $id_slider);
+      $this->M_slider->update_data('slider', $data, $where);
+      $this->session->set_flashdata('pesan', '<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>Slider</strong> Success To Update.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
     </div>');
-    redirect('admin/data_slider');
+      redirect('a/slider');
+    }
   }
-  public function delete_slider($id)
+  public function delete($id)
   {
     $where = array('id_slider' => $id);
     $this->M_resto->delete_data($where, 'slider');

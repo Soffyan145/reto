@@ -16,31 +16,29 @@
             <div class="section-body">
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <?php echo form_open_multipart('admin/data_account/edit_action'); ?>
+                        <?= $this->session->flashdata('message'); ?>
+                        <?php echo form_open_multipart('admin/data_account/change_password_action'); ?>
                         <div class="card-header">
                             <h4>Edit Profile</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-12 col-12">
-                                    <label>Full name</label>
-                                    <input type="text" id="nama" class="form-control" name="nama" value="<?php echo $user['nama'] ?>">
-                                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
+                                    <label>Current Password</label>
+                                    <input type="password" id="current_password" class="form-control" name="current_password">
+                                    <?= form_error('current_password', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-md-7 col-12">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" value="<?php echo $user['email'] ?>" readonly>
+                            <div class=" row">
+                                <div class="form-group col-md-6 col-12">
+                                    <label>New Password</label>
+                                    <input type="password" class="form-control" name="new_password1" id="new_password1">
+                                    <?= form_error('new_password1', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
-                                <div class="form-group col-md-5 col-12">
-                                    <label>Phone</label>
-                                    <input type="tel" id="phone" class="form-control" name="phone" value="<?php echo $user['phone'] ?>">
-                                    <?= form_error('phone', '<small class="text-danger pl-3">', '</small>') ?>
-                                </div>
-                                <div class="form-group col-md-12 col-12">
-                                    <label>Image</label>
-                                    <input type="file" class="form-control" name="img">
+                                <div class="form-group col-md-6 col-12">
+                                    <label>Repeat Password</label>
+                                    <input type="password" id="new_password2" class="form-control" name="new_password2">
+                                    <?= form_error('new_password2', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                             </div>
                         </div>

@@ -15,5 +15,6 @@ $title = $this->db->get('resto')->row_array();
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"><!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url('assets/backend') ?>/assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/backend') ?>/assets/css/components.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/backend') ?>/assets/css/default.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/backend') ?>/assets/modules/summernote/summernote-bs4.css">
 </head>
